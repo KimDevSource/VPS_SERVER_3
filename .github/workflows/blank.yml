@@ -1,0 +1,33 @@
+name: Windows-11-3Hours
+
+on:
+  workflow_dispatch:
+    inputs:
+      auth_code:
+        description: 'วาง Code CRP ใหม่จาก Google ทุกครั้งที่รัน'
+        required: true
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: 1. Setup-CRD
+        run: |
+          $url = "https://dl.google.com/edgedl/chrome-remote-desktop/chromeremotedesktophost.msi"
+          Invoke-WebRequest $url -OutFile "crd.msi"
+          Start-Process msiexec.exe -Wait -ArgumentList "/i crd.msi /qn"
+          
+      - name: 2. Activate
+        run: |
+          # วาง Code CRP และใช้ PIN: 123456
+          ${{ github.event.inputs.auth_code }} --pin=123456
+          
+      - name: 3. Keep-Alive (3 Hours)
+        run: |
+          $i = 0
+          # 3 ชม. = 180 นาที
+          while ($i -lt 180) {
+            Write-Host "เครื่องยังทำงานอยู่... ($i/180 นาที)"
+            Start-Sleep -Seconds 60
+            $i++
+          }
