@@ -2,12 +2,19 @@
 
 You Get Free Vps And Web Page And Code 100 ++
 
-Windows 10 2022 Datacenter Free 3 Hours ( It can be reconnected at any time. )
+Windows 10 2022 Datacenter
+Free 3 Hours ( It can be reconnected at any 
+time. )
 
 Free safety
 
 Free Web Page VPS Online / Offline
 
 Free All
+
+| Version | Supported          |
+| ------- | ------------------ |
+| Windows 11   | :white_check_mark: 
+| Windows 10   | :white_check_mark:             
 
 By KimTeamWork
