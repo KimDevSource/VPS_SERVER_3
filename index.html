@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KimVPS | System Offline</title>
+    <style>
+        :root {
+            --neon-red: #ff4444;
+            --dark-bg: #050505;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #330000 0%, #050505 80%);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .brand-name {
+            font-size: clamp(3rem, 15vw, 5rem);
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 68, 68, 0.6);
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .error-code {
+            font-family: monospace;
+            color: var(--neon-red);
+            font-size: 1.2rem;
+            margin-top: 10px;
+            letter-spacing: 5px;
+        }
+
+        .status-msg {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            color: #888;
+            max-width: 300px;
+            line-height: 1.6;
+        }
+
+        /* วงกลมไฟสีแดงนิ่งๆ (หรือกะพริบช้าๆ) */
+        .static-dot {
+            width: 15px;
+            height: 15px;
+            background-color: var(--neon-red);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--neon-red);
+            margin: 20px auto;
+            animation: slow-pulse 3s infinite;
+        }
+
+        @keyframes slow-pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        .back-btn {
+            margin-top: 40px;
+            padding: 10px 25px;
+            background: transparent;
+            border: 1px solid #444;
+            color: #666;
+            text-decoration: none;
+            font-family: monospace;
+            border-radius: 30px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            border-color: var(--neon-red);
+            color: var(--neon-red);
+            box-shadow: 0 0 10px rgba(255, 68, 68, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="brand-name">KIMVPS</h1>
+        <div class="error-code">STATUS: OFFLINE</div>
+        
+        <div class="static-dot"></div>
+
+        <p class="status-msg">
+            The system is currently unavailable or undergoing maintenance.
+        </p>
+
+        <a href="index.html" class="back-btn">RETRY CONNECTION</a>
+    </div>
+
+</body>
+</html>
