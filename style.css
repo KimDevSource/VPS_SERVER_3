@@ -1,0 +1,114 @@
+/**
+ * KIMVPS - System Stylesheet
+ * Theme: Cybernetic Dark Mode
+ * Developer: TheOfficialKim
+ */
+
+:root {
+    --primary: #00d2ff;     /* สีฟ้าไอออน */
+    --secondary: #001a33;   /* สีพื้นหลังเข้ม */
+    --accent: #ffaa00;      /* สีส้ม Warning */
+    --error: #ff4444;       /* สีแดงสว่าง */
+    --text: #e0e0e0;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+/* ตั้งค่าพื้นฐานให้ดูเหมือนหน้าจอคอมพิวเตอร์สมัยใหม่ */
+body {
+    background-color: #050505;
+    background-image: 
+        linear-gradient(rgba(0, 210, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 210, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px; /* ลายตาราง Grid พื้นหลัง */
+    color: var(--text);
+    font-family: 'Cascadia Code', 'Fira Code', monospace; /* ฟอนต์แนวโค้ดดิ้ง */
+    margin: 0;
+    overflow: hidden;
+}
+
+/* เอฟเฟกต์กะพริบที่ขอบจอเหมือนจอ CRT เก่า */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* หัวข้อ KimVPS ที่สว่างโชติช่วง */
+.vps-header {
+    text-align: center;
+    padding: 50px 0;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    filter: drop-shadow(0 0 10px var(--primary));
+    animation: flicker 4s infinite;
+}
+
+/* กล่องข้อมูลแบบกระจก (Glassmorphism) */
+.data-card {
+    background: var(--glass);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+.data-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+/* ปุ่มกดสไตล์ Sci-Fi */
+.btn-action {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 12px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.btn-action:hover {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 30px var(--primary);
+}
+
+/* อนิเมชั่นไฟกะพริบ */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0.4; }
+}
+
+/* แถบโหลด (Progress Bar) ปลอมๆ */
+.loading-bar {
+    width: 100%;
+    height: 4px;
+    background: #111;
+    position: relative;
+}
+
+.loading-bar-fill {
+    position: absolute;
+    height: 100%;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+    animation: load 2s infinite ease-in-out;
+}
+
+@keyframes load {
+    0% { width: 0%; left: 0; }
+    50% { width: 100%; left: 0; }
+    100% { width: 0%; left: 100%; }
+}
